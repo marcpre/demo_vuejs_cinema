@@ -27,14 +27,18 @@ new Vue({
       },
       template: `
       <div id="movie-filter"> 
-        <h2>Filter Result<h2> 
+        <h2>Filter Result</h2> 
         <div class="filter-group">
-          <check-filter v-for="genre in genres">{{ genre }}</check-filter>
+          <check-filter v-for="genre in genres" v-bind:title="genre"></check-filter>
         </div>
       </div>`,
       components: {
         'check-filter': {
-          template: `<div>filter</div>`,
+          props: ['title'],
+          template: `<div class="check-filter"> 
+                      <span class="checkbox"></span>
+                      <span class="check-filter-title"> {{ title }} </span>
+                    </div>`,
         }
       }
     }
