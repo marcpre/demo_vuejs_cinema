@@ -3,7 +3,12 @@ import './style.scss';
 import genres from './util/genres';
 
 new Vue({
-  el: '#app',
+  el: '#app', 
+  methods: {
+    checkFilter() {
+        
+    }
+  },
   components: {
     'movie-list': {
       template: `
@@ -39,7 +44,7 @@ new Vue({
         </div>`,
       methods: {
         checkFilter() {
-          console.log("checkFilter")
+          this.$emit('check-filter')
         }
       },
       components: {
