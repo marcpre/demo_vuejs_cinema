@@ -1,2 +1,2 @@
 # demo_vuejs_cinema
--stopped at video 75/ 11
+-stopped at video 80/ 12
