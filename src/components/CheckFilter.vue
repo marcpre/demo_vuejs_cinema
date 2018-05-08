@@ -8,19 +8,17 @@
     import genres from '../util/genres';
 
     export default {
-                data() {
-                    return {
-                        checked: false
-                    }
-                },
-                props: ['title'],
-                template: `
-          `,
-                methods: {
-                    checkFilter() {
-                        this.checked = !this.checked
-                        this.$emit('check-filter', 'genre', this.title, this.checked)
-                    }
-                }
+        data() {
+            return {
+                checked: false
+            }
+        },
+        props: ['title'],
+        methods: {
+            checkFilter() {
+                this.checked = !this.checked
+                this.$emit('check-filter', 'genre', this.title, this.checked)
+            }
+        }
     }
 </script>
