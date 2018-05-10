@@ -41,6 +41,9 @@ import MovieItem from './MovieItem.vue'
         },
         components: {
             MovieItem
+        },
+        created() {
+            console.log(this.$moment)
         }
     }
 </script>
