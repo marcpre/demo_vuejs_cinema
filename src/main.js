@@ -1,16 +1,15 @@
 import Vue from 'vue';
 import './style.scss';
 
-import MovieList from './components/MovieList.vue'
-import MovieFilter from './components/MovieFilter.vue'
+import MovieList from './components/MovieList.vue';
+import MovieFilter from './components/MovieFilter.vue';
 
-import VueResource from 'vue-resource'
-Vue.use(VueResource)
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 
-// so that we can use it in vue js
-import moment from 'moment-timezone'
-moment.tz.setDefault("UTC")
-Object.defineProperty(Vue.prototype, '$moment', { get() { return this.$root.moment }})
+import moment from 'moment-timezone';
+moment.tz.setDefault("UTC");
+Object.defineProperty(Vue.prototype, '$moment', { get() { return this.$root.moment } });
 
 new Vue({
   el: '#app',
@@ -24,12 +23,11 @@ new Vue({
   methods: {
     checkFilter(category, title, checked) {
       if (checked) {
-        this[category].push[title]
-      }
-      else {
-        let index = this[category].indexOf(title)
+        this[category].push(title);
+      } else {
+        let index = this[category].indexOf(title);
         if (index > -1) {
-          this[category].splice(index, 1)
+          this[category].splice(index, 1);
         }
       }
     }
@@ -40,8 +38,7 @@ new Vue({
   },
   created() {
     this.$http.get('/api').then(response => {
-      this.movies = response.data
-      console.log(this.movies)
-    })
+      this.movies = response.data;
+    });
   }
 });
