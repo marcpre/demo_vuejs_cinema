@@ -4,6 +4,7 @@
               <movie-item v-for="movie in filteredMovies" class="movie" 
                 v-bind:movie="movie.movie" 
                 v-bind:sessions="movie.sessions"
+                v-bind:time="time"
                 v-bind:day="day"></movie-item>    
         </div>
         <div v-else-if="movies.length" class="no-results">
@@ -33,8 +34,8 @@
                         if (movieGenres.indexOf(genre) === -1) {
                             matched = false
                         }
-                        return matched
                     })
+                    return matched
                 }
             },
             sessionPassesTimeFilter(session) {
