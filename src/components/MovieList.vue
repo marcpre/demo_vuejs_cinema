@@ -19,6 +19,8 @@
     import genres from '../util/genres';
     import times from '../util/times'
     import MovieItem from './MovieItem.vue'
+    
+    
 
     export default {
         props: ['genre', 'time', 'movies', 'day'],
