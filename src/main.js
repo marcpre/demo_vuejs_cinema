@@ -33,7 +33,7 @@ new Vue({
       this.movies = response.data;
     });
     this.$bus.$on('check-filter', checkFilter.bind(this))
-    this.$bus.$on('set-day', setDay.bin(this))
+    this.$bus.$on('set-day', setDay.bind(this))
   },
   router
 });
