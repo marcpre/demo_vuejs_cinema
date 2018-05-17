@@ -18,6 +18,9 @@ Vue.use(VueRouter)
 import routes from './util/routes'
 const router = new VueRouter({ routes })
 
+import Tooltip from './util/tooltip'
+Vue.use(Tooltip)
+
 new Vue({
   el: '#app',
   data: {
@@ -53,17 +56,21 @@ let mouseOutHandler = function(event) {
 Vue.directive('tooltip', {
   bind(el, bindings) {
     let span = document.createElement('SPAN')
-    let text = document.createTextNode('Seats available: 200')
+    let text = document.createTextNode(`Seats available: ${bindings.value.seats}`)
     span.appendChild(text)
     addClass(span, 'tooltip')
     el.appendChild(span)
     let div = el.getElementsByTagName('DIV')[0]
     div.addEventListener('mouseover', mouseOverHandler)
     div.addEventListener('mouseout', mouseOutHandler)
+    div.addEventListener('touchstart', mouseOverHandler) // for mobile
+    div.addEventListener('touchend', mouseOutHandler)    
   },
   unbind(el) {
     let div = el.getElementsByTagName('DIV')[0]
     div.removeEventListener('mouseover', mouseOverHandler)
     div.removeEventListener('mouseout', mouseOutHandler)
+    div.removeEventListener('touchstart', mouseOverHandler) // for mobile
+    div.removeEventListener('touchend', mouseOutHandler)    
   }
 })
